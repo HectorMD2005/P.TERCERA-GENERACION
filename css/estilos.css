@@ -1,360 +1,207 @@
-
-/* =========================================
-   1. RESET Y CONFIGURACIÓN GENERAL
-========================================= */
-
-* {
+/* Reset de estilos */
+*{
     box-sizing: border-box;
 }
-
-:root {
-    --color-principal: #0b5ed7;
-    --color-texto: #222;
-    --ancho-max: 1080px;
-}
-
-body {
+body{
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     color: var(--color-texto);
 }
 
-.contenedor {
+:root{
+    --color-principal: #d7480b;
+    --color-texto: #000000;
+    --ancho-max:1140px 
+}
+.contenedor{
     width: 100%;
     max-width: var(--ancho-max);
     margin: 0 auto;
     padding: 0 1rem;
 }
-
-
-/* =========================================
-   2. HEADER Y NAVEGACIÓN
-========================================= */
-
-.header {
+/* Estilos del header */
+.header{
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 1rem 2rem;
+    padding: 1rem;
 }
 
-.logo {
+.logo{
     font-size: 1.3rem;
-    font-weight: bold;
+    font-weight:bolder;
     color: var(--color-principal);
-    text-decoration: none;
+    text-decoration:none;
+
 }
 
-/* Menú de navegación */
-
-.menu {
-    display: none;
-    width: 100%;
+.menu ul{
+display: flex;
+gap: 1.5rem;
+list-style:none;
+margin: 0;
+padding: 0;
 }
 
-.menu ul {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 1rem 0 0;
-}
-
-.menu a {
+.menu a{
     color: var(--color-texto);
-    text-decoration: none;
-    transition: color 0.3s ease;
+text-decoration:none;
 }
 
-.menu a:hover {
+.menu a:hover{
     color: var(--color-principal);
 }
 
-/* Menú abierto */
+.hamburguesa{
+  display:flex;
+  flex-direction:column;
+  gap: 5px;
+  padding: 0.5rem;
+  background:none;
+  border:0;
+  cursor:pointer;
 
-.menu.abierto {
-    display: block;
-    animation: aparecer 0.3s ease;
 }
 
-/* Animación de despliegue */
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-
-/* =========================================
-   3. BOTÓN HAMBURGUESA
-========================================= */
-
-.hamburguesa {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 5px;
-    padding: 0.5rem;
-    background: none;
-    border: 0;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.hamburguesa span {
-    display: block;
+.hamburguesa span{
+    display:block;
     width: 26px;
-    height: 3px;
-    background: var(--color-texto);
+    height:3px;
+    background-color:var(--color-texto);
     border-radius: 2px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform .2s, opacity .2s; /*animar en clase 4*/
 }
 
-/* Primera línea */
+/*Portada */
 
-.hamburguesa.activo span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-/* Segunda línea */
-
-.hamburguesa.activo span:nth-child(2) {
-    opacity: 0;
-}
-
-/* Tercera línea */
-
-.hamburguesa.activo span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-/* =========================================
-   4. PORTADA
-========================================= */
-
-.portada {
+.portada{
     padding: 3rem 1rem;
-    text-align: center;
+    text-align:center;
     background-color: var(--color-principal);
     color: #fff;
 }
 
-.portada h1 {
+.portada h1{
     margin: 0 0 1rem;
     font-size: 1.8rem;
 }
-
-
-/* =========================================
-   5. BOTONES
-========================================= */
-
-.boton {
-    display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--color-principal);
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+.boton{
+display:inline-block;
+padding: 0.6rem 1.2rem;
+background-color: var(--color-principal);
+color: #fff;
+text-decoration:none;
+border-radius: 5px;
+font-weight: bold;
 }
 
-.boton:hover {
-    transform: translateY(-3px);
-    opacity: 0.9;
-}
-
-.portada .boton {
+.portada .boton{
     background-color: #fff;
     color: var(--color-principal);
 }
 
-
-/* =========================================
-   6. TARJETAS
-========================================= */
-
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-}
-
-.tarjeta {
-    width: 100%;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(190, 2, 112, 0.644);
-    overflow: hidden;
-    transition: transform 0.3s ease;
-}
-
-.tarjeta:hover {
-    transform: translateY(-4px);
-}
-
-
-/* =========================================
-   7. ACORDEÓN
-========================================= */
-
-.accordion .titulo {
-    width: 100%;
-    padding: 1rem;
-    text-align: left;
-    font-size: 1rem;
-    background: #f1f3f5;
-    border: 0;
-    border-bottom: 1px solid #ddd;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.accordion .titulo:hover {
-    background: #e2e6ea;
-}
-
-.accordion .contenido {
-    display: none;
-    padding: 0 1rem;
-}
-
-.accordion .item.activo .contenido {
-    display: block;
-}
-
-
-/* =========================================
-   8. FOOTER
-========================================= */
-
-.footer {
-    display: flex;
-    flex-direction: column;
+/*footer*/
+.footer{
+    display:flex;
+    flex-direction:column;
     gap: 1rem;
     padding: 2rem 1rem;
     background-color: #222;
     color: #fff;
-    text-align: center;
+    text-align:center;
 }
 
-.footer a {
+footer a{
     color: #fff;
-    text-decoration: none;
+    text-decoration:none;
+
 }
 
-.redes {
-    display: flex;
-    justify-content: center;
+.redes{
+    display:flex;
+    justify-content:center;
     gap: 1rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.cards { display: flex; flex-wrap: wrap; gap: 1rem; }
+
+.tarjeta {
+  width: 100%;
+  height: auto;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 20px 6px rgba(0,0,0,.1);
+  overflow: hidden;
+  transition: transform .2s;
+}
+.tarjeta:hover { transform: translateY(-4px); }
+
+@media (min-width: 701px) { 
+
+    .tarjeta { width: 45%; } 
+}
+@media (min-width: 991px) { 
+    .tarjeta { width: calc(33.333% - .67rem); }
+ }
+
+ /*acoordion*/
+ .accordion .titulo {
+  width: 100%;
+  padding: 1rem;
+  text-align: left;
+  font-size: 1rem;
+  background: #f1f3f5;
+  border: 0;
+  border-bottom: 5px solid #ddd;
+  cursor: pointer;
 }
 
 
-/* =========================================
-   9. RESPONSIVE: TABLETS PEQUEÑAS
-========================================= */
 
+.accordion .contenido { display: none; padding: 0 1rem; }
+.accordion .item.activo .contenido { display: block; }
+
+
+/* base: celular */
+.menu { display: none; }        /* lo abrirá la hamburguesa */
+
+.header { flex-wrap: wrap; }          /* el menú abierto baja a otra línea */
+.menu { width: 100%; }
+.menu.abierto { display: block; }
+.menu.abierto ul { flex-direction: column; padding-top: 1rem; }
 @media (min-width: 501px) {
 
-    .portada h1 {
-        font-size: 2.1rem;
-    }
-
+  .portada h1 { font-size: 2.1rem; }
 }
-
-
-/* =========================================
-   10. RESPONSIVE: TABLETS
-========================================= */
 
 @media (min-width: 701px) {
-
-    .portada {
-        padding: 4rem 2rem;
-    }
-
-    .tarjeta {
-        width: calc(50% - 0.5rem);
-    }
-
-    .footer {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        text-align: left;
-    }
-
+  .portada { padding: 4rem 2rem; }
+  .footer {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
 }
-
-
-/* =========================================
-   11. RESPONSIVE: ESCRITORIO
-========================================= */
 
 @media (min-width: 991px) {
-
-    /* Navegación horizontal */
-
-    .menu {
-        display: block;
-        width: auto;
-    }
-
-    .menu ul {
-        flex-direction: row;
-        align-items: center;
-        gap: 1.5rem;
-        padding: 0;
-    }
-
-    /* Ocultar hamburguesa */
-
-    .hamburguesa {
-        display: none;
-    }
-
-    /* Portada */
-
-    .portada h1 {
-        font-size: 2.6rem;
-    }
-
-    /* Tarjetas */
-
-    .tarjeta {
-        width: calc(33.333% - 0.67rem);
-    }
-
+  .menu { display: block; }       /* menú normal en pantalla grande */
+  .hamburguesa { display: none; }
+  .portada h1 { font-size: 2.6rem; }
+  .menu { display: block; width: auto; }   /* siempre visible en escritorio */
+.hamburguesa { display: none; }
+.menu.abierto ul { flex-direction: row; padding-top: 0; }
 }
 
-
-/* =========================================
-   12. ACCESIBILIDAD
-========================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
+.hamburguesa.activo span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburguesa.activo span:nth-child(2) { opacity: 0; }
+.hamburguesa.activo span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+.cards img{
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+   
 }
